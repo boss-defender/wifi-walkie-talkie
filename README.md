@@ -28,7 +28,7 @@ just unzip and give password and install the app . Install anyway because it is 
 * **Low-Latency Audio:** Powered by Opus compression and low-latency audio pipelines for crisp, crackle-free voice even on 2.4 GHz Wi-Fi.
 * **Mute/Listen Toggle:** Turn incoming walkie-talkie audio ON or OFF with a single tap.
 * **Background Mode:** Keeps listening even when your phone screen is locked or the app is minimized.
-* **Files Sharing:** Send up to 500 Kb size of any type of file. 
+* **Files Sharing:** Send any size of any type of file. 
 
 ### 💬 2. Private Chats & Network Broadcasting
 * **1-on-1 Private Inbox:** Chat directly with specific devices connected to the same Wi-Fi.
