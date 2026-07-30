@@ -7,8 +7,10 @@
 
 https://drive.google.com/file/d/16RLXD3sIe2VEP0gpBGif9qm1dKVeyG1W/view?usp=sharing
 
-Password : 1234
+**Password :** 1234
+
 just unzip and give password and install the app . Install anyway because it is completely safe .
+
 ---
 ## 🌟 Why Use This App? (The Big Benefits)
 
