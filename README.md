@@ -17,7 +17,6 @@ just unzip and give password and install the app . Install anyway because it is 
 * 🛡️ **100% Serverless & Private:** Your data **never leaves your router**. There are no central servers, no cloud databases, and no tracking. Everything is peer-to-peer (P2P).
 * 💸 **Zero Data/Internet Costs:** Works completely offline! Perfect for office floors, home networks, warehouses, road trips, or off-grid emergency scenarios.
 * ⚡ **Ultra-Fast Local Speeds:** Transfer huge files, stream video, and talk with near-zero latency using your Wi-Fi router's maximum speed.
-* 🚫 **No Sneaky Permissions:** **Zero location permissions required.** We respect your privacy.
 
 ---
 
