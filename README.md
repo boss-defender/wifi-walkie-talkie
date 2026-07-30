@@ -3,11 +3,12 @@
 > **Talk, call, and share files instantly with anyone on your local Wi-Fi — zero internet required, zero cloud servers, and 100% private.**
 
 ---
-## App Link: 
+## App Link and zip password : 
 
 https://drive.google.com/file/d/16RLXD3sIe2VEP0gpBGif9qm1dKVeyG1W/view?usp=sharing
 
-zip password : 1234
+Password : 1234
+just unzip and give password and install the app . Install anyway because it is completely safe .
 ---
 ## 🌟 Why Use This App? (The Big Benefits)
 
