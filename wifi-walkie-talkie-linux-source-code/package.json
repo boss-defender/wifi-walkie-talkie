@@ -1,0 +1,70 @@
+{
+  "name": "wifi-walkie-talkie-linux",
+  "productName": "WiFi Walkie-Talkie",
+  "version": "1.0.0",
+  "description": "Offline Wi-Fi Walkie-Talkie, P2P Messenger & Voice/Video Calls for Linux",
+  "main": "src/main/main.js",
+  "author": "Walkie Talkie",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "dist": "bash scripts/build-appimage.sh",
+    "pack": "electron-builder --linux dir",
+    "build-appimage": "bash scripts/build-appimage.sh",
+    "test": "node scripts/renderer-check.js && node scripts/integration-test.js",
+    "test:renderer": "node scripts/renderer-check.js",
+    "test:integration": "node scripts/integration-test.js",
+    "test:crypto": "node scripts/conformance.js"
+  },
+  "devDependencies": {
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "com.example.walkietalkie",
+    "productName": "WiFi Walkie-Talkie",
+    "artifactName": "WiFi-Walkie-Talkie-${version}-${arch}.AppImage",
+    "asar": true,
+    "compression": "maximum",
+    "npmRebuild": false,
+    "buildDependenciesFromSource": false,
+    "electronDownload": {
+      "cache": ".buildtools/electron-cache"
+    },
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "build/icons/**/*",
+      "package.json",
+      "LICENSE",
+      "!**/*.map",
+      "!.buildtools/**/*",
+      "!dist/**/*"
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Network;AudioVideo;Communication",
+      "icon": "build/icons/1024x1024.png",
+      "synopsis": "Offline Wi-Fi Walkie-Talkie, P2P Messenger & Calls",
+      "description": "Talk, call and share files instantly with anyone on your local Wi-Fi. Zero internet, zero cloud, 100% private peer-to-peer.",
+      "desktop": {
+        "Name": "WiFi Walkie-Talkie",
+        "StartupWMClass": "WiFi Walkie-Talkie",
+        "Keywords": "walkie-talkie;p2p;mesh;offline;radio;lan;chat;"
+      }
+    },
+    "appImage": {
+      "license": "LICENSE"
+    }
+  }
+}
