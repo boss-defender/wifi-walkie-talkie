@@ -15,7 +15,7 @@ https://drive.google.com/file/d/16RLXD3sIe2VEP0gpBGif9qm1dKVeyG1W/view?usp=shari
 
 ## Linux App Link : 
 
-https://drive.google.com/file/d/1ualiYHSPhWqYT4YsB7BSsE95AMM4rvy5/view?usp=sharing
+https://drive.google.com/file/d/1jmBlVDdlIz19q7dXrNT5cvuE6i2frZbZ/view?usp=sharing
 
 **Just double click it or ./WiFi-Walkie-Talkie-1.0.0-x86_64.AppImage**
 
