@@ -15,6 +15,51 @@ Electron, Chromium, Node.js, the app and its libraries — is packed inside the 
 
 ---
 
+# Want to Build from scratch:
+**Copy paste this to Ai agent prompt box**
+
+```text
+You are an experienced Linux application packaging engineer. Inspect this entire project, then build and document a self-contained AppImage for it.
+
+` Goal:
+
+Create an AppImage that Linux users can download, make executable if needed, and launch by double-clicking. At runtime, the app must not require users to install Node.js, npm packages, language runtimes, or other app-specific dependencies. Bundle the app and its app-specific runtime and libraries inside the AppImage.
+
+The app should work without internet access after download. Do not add runtime downloads, external services, or installation steps.
+
+` Before building ::
+
+- Inspect the source tree, README, dependency manifests, build scripts, native modules, and licenses. Determine the app’s actual runtime and build requirements before changing anything.
+- Preserve the app’s existing features and behavior.
+- Identify the target CPU architecture. Build for the supported architecture or architectures, and clearly label each output.
+- Do not claim compatibility with every Linux distribution without testing it. Determine and document the minimum system libraries and other host requirements that cannot reasonably be bundled, such as the applicable glibc baseline and desktop libraries.
+
+` Package the application
+
+- Include all files the app needs at runtime, including its runtime, application code, assets, icons, native modules, and required shared libraries.
+- Do not depend on paths from the build machine, globally installed app runtimes, a package manager, or files outside the AppImage.
+- Make the AppImage launch correctly by double-clicking and from a terminal. Set the executable bit and include a working desktop entry and application icon.
+- Avoid unnecessary first-run prompts and network access.
+- Include required third-party licenses and notices.
+- Keep generated build output out of the source tree unless this project explicitly requires it.
+
+` Build and verify
+
+- Provide a repeatable build script and one clear command to create the AppImage.
+- List build-time prerequisites separately from runtime requirements. If a build tool is missing, explain how to install it or provide a suitable project-local setup; do not confuse build tools with dependencies needed by AppImage users.
+- Build the AppImage and verify that it exists, is executable, has the expected architecture, and contains the required application files.
+- Test launching it on a clean Linux environment representative of the oldest distro you claim to support. Test both double-click launch and terminal launch.
+- Test the app’s main features, including its offline or local-network behavior where applicable.
+- If a requirement cannot be verified, state that clearly and do not claim it works.
+- Report the output path, build command, tested distro and architecture, runtime host requirements, and any limitations.
+
+Make the necessary project changes, then summarize exactly what changed and how another developer can reproduce the build.
+
+
+```
+
+---
+
 ## 🌟 Why
 
 * 🛡️ **100% private:** your data never leaves your router. No central servers, no cloud, no tracking.
