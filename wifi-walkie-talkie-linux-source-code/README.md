@@ -15,7 +15,7 @@ Electron, Chromium, Node.js, the app and its libraries — is packed inside the 
 
 ---
 
-# Want to Build from scratch:
+#🛠️ Want to Build from scratch:
 **Copy paste this to Ai agent prompt box**
 
 ```text
