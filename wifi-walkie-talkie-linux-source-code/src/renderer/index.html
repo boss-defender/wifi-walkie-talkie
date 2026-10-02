@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self';" />
+  <title>WiFi Walkie-Talkie</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== Header ===================== -->
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark">&#128246;</span>
+      <div class="brand-text">
+        <button id="displayNameBtn" class="device-name" title="Click to change your display name">Walkie-User</button>
+        <span id="networkLine" class="network-line">detecting network&hellip;</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <span id="statusPill" class="status-pill status-searching">
+        <span class="dot"></span><span id="statusText">SEARCHING</span>
+      </span>
+      <span id="peerCount" class="peer-count">0 peers</span>
+    </div>
+  </header>
+
+  <!-- ===================== Navigation ===================== -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="radio">
+      <span class="tab-icon">&#128251;</span><span>Walkie-Talkie</span>
+    </button>
+    <button class="tab" data-tab="hub">
+      <span class="tab-icon">&#128227;</span><span>Broadcast Hub</span>
+    </button>
+    <button class="tab" data-tab="chats">
+      <span class="tab-icon">&#128172;</span><span>Chats & Calls</span>
+      <span id="chatsBadge" class="badge hidden">0</span>
+    </button>
+    <button class="tab" data-tab="settings">
+      <span class="tab-icon">&#9881;</span><span>Settings</span>
+    </button>
+  </nav>
+
+  <!-- ===================== Main ===================== -->
+  <main class="content">
+
+    <!-- ---------- Walkie-Talkie ---------- -->
+    <section class="panel active" id="panel-radio">
+      <div class="card channel-card">
+        <div class="channel-head">
+          <div class="channel-label">
+            <span class="chan-icon">&#128251;</span>
+            <span class="chan-title">FREQUENCY CHANNEL</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="listenToggle" checked />
+            <span class="switch-track"><span class="switch-thumb"></span></span>
+            <span class="switch-text">LISTENING</span>
+          </label>
+        </div>
+
+        <div class="channel-number" id="channelNumber">1</div>
+
+        <div class="channel-controls">
+          <button class="chan-btn" id="channelDown" title="Previous channel">&minus;</button>
+          <div class="channel-status" id="channelStatus">Channel 1 is clear and listening</div>
+          <button class="chan-btn" id="channelUp" title="Next channel">+</button>
+        </div>
+      </div>
+
+      <div class="card visualizer-card">
+        <canvas id="waveform" class="waveform"></canvas>
+        <div class="visualizer-meta">
+          <span id="talkPeerLabel">Idle</span>
+          <span id="walkieStats">0 packets</span>
+        </div>
+      </div>
+
+      <div class="ptt-area">
+        <button id="pttButton" class="ptt-button" title="Press and hold to talk">
+          <span class="ptt-mic">&#127911;</span>
+          <span class="ptt-label" id="pttLabel">HOLD TO SPEAK</span>
+        </button>
+        <p class="ptt-hint">Press and hold to talk over local Wi-Fi</p>
+      </div>
+    </section>
+
+    <!-- ---------- Broadcast Hub ---------- -->
+    <section class="panel" id="panel-hub">
+      <div class="split">
+        <div class="chat-column">
+          <div class="card chat-card">
+            <div class="chat-head">
+              <h2>Network Broadcast</h2>
+              <span class="pill">Everyone on this Wi-Fi</span>
+            </div>
+            <div class="message-list" id="hubMessages"></div>
+            <div class="composer">
+              <input type="text" id="hubInput" placeholder="Broadcast a message to everyone&hellip;" autocomplete="off" />
+              <button class="icon-btn" id="hubSend" title="Send broadcast">&#10148;</button>
+              <button class="icon-btn" id="hubAttach" title="Send a file to everyone">&#128206;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="peer-column">
+          <div class="card peer-card">
+            <div class="chat-head">
+              <h2>Nearby Devices</h2>
+              <button class="link-btn" id="rescanBtn">Rescan</button>
+            </div>
+            <div class="peer-list" id="hubPeers"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- Chats & Calls ---------- -->
+    <section class="panel" id="panel-chats">
+      <div class="split">
+        <div class="peer-column">
+          <div class="card peer-card">
+            <div class="chat-head">
+              <h2>Conversations</h2>
+              <button class="link-btn" id="rescanChatsBtn" title="Search the local network again">Rescan</button>
+            </div>
+            <div class="peer-list" id="chatPeers"></div>
+          </div>
+        </div>
+
+        <div class="chat-column">
+          <div class="card chat-card">
+            <div class="chat-head">
+              <div class="chat-title-group">
+                <h2 id="chatTitle">Select a device</h2>
+                <span id="chatSubtitle" class="chat-subtitle">Private peer-to-peer conversation</span>
+              </div>
+              <div class="chat-actions">
+                <button class="icon-btn call-btn" id="callAudioBtn" title="Start voice call">&#9742;</button>
+                <button class="icon-btn call-btn" id="callVideoBtn" title="Start video call">&#128249;</button>
+                <button class="icon-btn" id="chatClearBtn" title="Clear conversation">&#128465;</button>
+              </div>
+            </div>
+            <div class="message-list" id="chatMessages"></div>
+            <div class="composer">
+              <input type="text" id="chatInput" placeholder="Message&hellip;" autocomplete="off" disabled />
+              <button class="icon-btn" id="chatSend" title="Send">&#10148;</button>
+              <button class="icon-btn" id="chatAttach" title="Send a file">&#128206;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- Settings ---------- -->
+    <section class="panel" id="panel-settings">
+      <div class="settings-grid">
+        <div class="card settings-card">
+          <h2>Identity</h2>
+          <label class="field">
+            <span>Display name</span>
+            <input type="text" id="settingsName" placeholder="Your name on the network" />
+          </label>
+          <button class="primary-btn" id="settingsSaveName">Save name</button>
+        </div>
+
+        <div class="card settings-card">
+          <h2>Radio</h2>
+          <label class="field">
+            <span>Frequency channel</span>
+            <input type="number" id="settingsChannel" min="1" max="99" value="1" />
+          </label>
+          <button class="primary-btn" id="settingsSaveChannel">Save channel</button>
+        </div>
+
+        <div class="card settings-card">
+          <h2>Storage</h2>
+          <label class="switch switch-block">
+            <input type="checkbox" id="settingsAutoDelete" checked />
+            <span class="switch-track"><span class="switch-thumb"></span></span>
+            <span class="switch-text">Auto-delete messages older than 2 days</span>
+          </label>
+          <button class="primary-btn" id="settingsCleanup">Delete old messages now</button>
+          <button class="secondary-btn" id="settingsOpenFolder">Open received-files folder</button>
+        </div>
+
+        <div class="card settings-card">
+          <h2>Network</h2>
+          <dl class="info-list" id="settingsNetwork"></dl>
+        </div>
+
+        <div class="card settings-card">
+          <h2>About</h2>
+          <dl class="info-list" id="settingsAbout"></dl>
+        </div>
+
+        <div class="card settings-card">
+          <h2>Privacy</h2>
+          <p class="muted">
+            Every byte travels peer-to-peer over your local network. There is no
+            cloud server, no account and no telemetry &mdash; closing this app is the
+            only way to stop it. Audio is only transmitted while you hold the
+            push-to-talk button.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Call overlay ===================== -->
+  <div class="overlay hidden" id="callOverlay">
+    <div class="call-stage">
+      <video id="remoteVideo" class="remote-video hidden" autoplay playsinline></video>
+      <img id="remoteVideoImg" class="remote-video hidden" alt="Remote camera" />
+      <div class="call-placeholder" id="callPlaceholder">
+        <div class="call-avatar" id="callAvatar">?</div>
+        <div class="call-name" id="callName">Peer</div>
+        <div class="call-state" id="callState">Connecting&hellip;</div>
+      </div>
+      <video id="localVideo" class="local-video hidden" autoplay playsinline muted></video>
+      <div class="call-timer" id="callTimer">00:00</div>
+    </div>
+
+    <div class="call-controls" id="callControls">
+      <button class="call-btn-round" id="callMicBtn" title="Mute microphone">&#127911;</button>
+      <button class="call-btn-round" id="callVideoBtn" title="Toggle camera">&#128249;</button>
+      <button class="call-btn-round end" id="callEndBtn" title="End call">&#128222;</button>
+      <button class="call-btn-round accept" id="callAcceptBtn" title="Accept">&#9742;</button>
+    </div>
+  </div>
+
+  <!-- ===================== Incoming call banner ===================== -->
+  <div class="incoming hidden" id="incomingBanner">
+    <div class="incoming-avatar" id="incomingAvatar">?</div>
+    <div class="incoming-info">
+      <div class="incoming-name" id="incomingName">Unknown device</div>
+      <div class="incoming-sub" id="incomingSub">Incoming voice call</div>
+    </div>
+    <button class="call-btn-round accept" id="incomingAccept" title="Accept">&#9742;</button>
+    <button class="call-btn-round end" id="incomingDecline" title="Decline">&#128222;</button>
+  </div>
+
+  <!-- ===================== Toast ===================== -->
+  <div class="toast-stack" id="toastStack"></div>
+
+  <script src="audio.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
