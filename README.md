@@ -3,13 +3,23 @@
 > **Talk, call, and share files instantly with anyone on your local Wi-Fi — zero internet required, zero cloud servers, and 100% private.**
 
 ---
-## App Link and zip password : 
+## Android App Link and zip password : 
 
 https://drive.google.com/file/d/16RLXD3sIe2VEP0gpBGif9qm1dKVeyG1W/view?usp=sharing
 
 **Password :** 1234
 
-just unzip and give password and install the app . Install anyway because it is completely safe .
+**Just unzip and give password and install the app . Install anyway because it is completely safe.**
+
+---
+
+## Linux App Link : 
+
+https://drive.google.com/file/d/1ualiYHSPhWqYT4YsB7BSsE95AMM4rvy5/view?usp=sharing
+
+**Just double click it or ./WiFi-Walkie-Talkie-1.0.0-x86_64.AppImage**
+
+**Supported Linux: Any Linux Distro.**
 
 ---
 ## 🌟 Why Use This App? (The Big Benefits)
