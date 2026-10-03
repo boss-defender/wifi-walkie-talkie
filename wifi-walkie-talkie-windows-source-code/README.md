@@ -16,6 +16,16 @@ packed inside that single ~65 MB file. To uninstall, delete the file.
 
 ---
 
+## Windows App Link : 
+
+https://drive.google.com/file/d/1zRrkCh1pbAE5uCi0-XgY4WjWEO-SvCUw/view?usp=sharing
+
+**Just double click it**
+
+**Supported Windows: 10/11.**
+
+---
+
 # 🛠️ Want to build from scratch: 
 **Just copy paste this to ai agent to build exe**
 ```text
