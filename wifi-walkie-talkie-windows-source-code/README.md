@@ -16,6 +16,37 @@ packed inside that single ~65 MB file. To uninstall, delete the file.
 
 ---
 
+# 🛠️ Want to build from scratch: 
+**Just copy paste this to ai agent to build exe**
+```text
+You are an Electron and Windows packaging engineer. Inspect this project and build its portable Windows executable from the source.
+
+## Required result
+
+Produce one self-contained x64 Windows portable `.exe`, using this project’s Electron Builder `portable` target—not an installer. The expected output name is:
+
+`WiFi-Walkie-Talkie-1.0.0-x64-portable.exe`
+
+Users should be able to download the file and double-click it on Windows 10 or 11 x64. They must not need to install Node.js, npm packages, Electron, or an application installer. Bundle the app, Electron/Chromium runtime, application code, assets, and required app-specific runtime files inside the executable.
+
+Preserve the project’s behavior and security checks. Do not add runtime downloads or external-service requirements. Keep the existing user-data behavior and documented Windows Firewall consent flow. Do not claim the executable is signed unless a real code-signing certificate was used.
+
+## Build steps
+
+1. Read `README.md`, `package.json`, `scripts/build-windows.sh`, and the verification scripts. Follow the existing build configuration where it works.
+2. Use Node.js 18 or newer. If `package-lock.json` is missing, create and include one so dependency versions can be reproduced.
+3. Install the project dependencies, run the project’s checks, and build with `npm run dist`.
+4. Verify the output exists, is a Windows x64 portable executable, includes the expected icon/version/manifest resources, and is not an installer. Use the project’s verification script.
+5. Test launching and core application behavior in a clean Windows 10/11 x64 environment. If a Windows environment or suitable compatibility test is unavailable, say exactly what was and was not verified.
+
+## Report back
+
+Give the exact build command, output path, architecture, signing status, test environment, and any remaining host requirements or limitations. Keep build caches, `node_modules/`, and generated `dist/` files out of the source folder.
+
+```
+
+---
+
 ## 🌟 Why
 
 * 🛡️ **100% private:** your data never leaves your router. No central servers, no cloud, no tracking.
