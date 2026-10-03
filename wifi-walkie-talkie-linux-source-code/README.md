@@ -15,6 +15,16 @@ Electron, Chromium, Node.js, the app and its libraries — is packed inside the 
 
 ---
 
+## Linux App Link : 
+
+https://drive.google.com/file/d/1jmBlVDdlIz19q7dXrNT5cvuE6i2frZbZ/view?usp=sharing
+
+**Just double click it or ./WiFi-Walkie-Talkie-1.0.0-x86_64.AppImage**
+
+**Supported Linux: Any Linux Distro.**
+
+---
+
 # 🛠️ Want to Build from scratch:
 **Copy paste this to Ai agent prompt box**
 
