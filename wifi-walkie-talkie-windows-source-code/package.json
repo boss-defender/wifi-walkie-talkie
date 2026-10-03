@@ -1,0 +1,78 @@
+{
+  "name": "wifi-walkie-talkie-windows",
+  "productName": "WiFi Walkie-Talkie",
+  "version": "1.0.0",
+  "description": "Offline Wi-Fi Walkie-Talkie, P2P Messenger & Voice/Video Calls for Windows",
+  "main": "src/main/main.js",
+  "author": "Walkie Talkie",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "dist": "bash scripts/build-windows.sh",
+    "pack": "electron-builder --win dir --x64",
+    "test": "node scripts/renderer-check.js && node scripts/safety-check.js && node scripts/integration-test.js",
+    "test:renderer": "node scripts/renderer-check.js",
+    "test:safety": "node scripts/safety-check.js",
+    "test:integration": "node scripts/integration-test.js",
+    "test:crypto": "node scripts/conformance.js",
+    "test:smoke": "bash scripts/smoke-windows.sh",
+    "test:ui": "python3 scripts/ui-check.py",
+    "icons": "python3 scripts/make_icons.py && python3 scripts/make_windows_icon.py",
+    "verify:exe": "node scripts/verify-exe.js dist/win-unpacked/wifi-walkie-talkie.exe"
+  },
+  "devDependencies": {
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "com.example.walkietalkie",
+    "productName": "WiFi Walkie-Talkie",
+    "artifactName": "WiFi-Walkie-Talkie-${version}-${arch}.exe",
+    "asar": true,
+    "compression": "normal",
+    "npmRebuild": false,
+    "buildDependenciesFromSource": false,
+    "electronLanguages": [
+      "en-US"
+    ],
+    "electronDownload": {
+      "cache": ".buildtools/electron-cache"
+    },
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "build/icons/**/*",
+      "package.json",
+      "LICENSE",
+      "!**/*.map",
+      "!.buildtools/**/*",
+      "!dist/**/*",
+      "!scripts/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "executableName": "wifi-walkie-talkie",
+      "requestedExecutionLevel": "asInvoker",
+      "legalTrademarks": "",
+      "fileAssociations": []
+    },
+    "portable": {
+      "artifactName": "WiFi-Walkie-Talkie-${version}-${arch}-portable.exe",
+      "unicode": true,
+      "requestExecutionLevel": "user"
+    }
+  }
+}
