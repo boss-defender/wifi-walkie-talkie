@@ -23,7 +23,7 @@ https://drive.google.com/file/d/1jmBlVDdlIz19q7dXrNT5cvuE6i2frZbZ/view?usp=shari
 
 ---
 
-## Linux App Link : 
+## Windows App Link : 
 
 https://drive.google.com/file/d/1zRrkCh1pbAE5uCi0-XgY4WjWEO-SvCUw/view?usp=sharing
 
