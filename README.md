@@ -32,6 +32,7 @@ https://drive.google.com/file/d/1zRrkCh1pbAE5uCi0-XgY4WjWEO-SvCUw/view?usp=shari
 **Supported Windows: 10/11.**
 
 ---
+
 ## 🌟 Why Use This App? (The Big Benefits)
 
 * 🛡️ **100% Private & Secure:** Your data **never leaves your router**. There are no central servers, no cloud databases, and no tracking. Everything is peer-to-peer (P2P).
