@@ -7,6 +7,12 @@
 
 **Download the wifi-walkie-talkie-apk.zip and unzip it or,**
 
+1st link without password: 
+
+https://drive.google.com/file/d/1z1zgb5FZMOUeLIgqJUIJSPO48ygHL1-2/view?usp=sharing
+
+2nd link with password:
+
 https://drive.google.com/file/d/16RLXD3sIe2VEP0gpBGif9qm1dKVeyG1W/view?usp=sharing
 
 **Password :** 1234
