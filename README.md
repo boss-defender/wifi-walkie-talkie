@@ -5,6 +5,8 @@
 ---
 ## Android App Link and zip password : 
 
+**Download the wifi-walkie-talkie-apk.zip and unzip it or,**
+
 https://drive.google.com/file/d/16RLXD3sIe2VEP0gpBGif9qm1dKVeyG1W/view?usp=sharing
 
 **Password :** 1234
